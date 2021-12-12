@@ -28,25 +28,30 @@
 <body>
 <img src="./assets/cctv_frames/0001.jpg"/>
 <script>
+  const mPos = {
+    x: 0,
+    y: 0
+  }
   let src = './assets/cctv_frames/0001.jpg'
   const toDeg = 180 / Math.PI
   const img = document.body.querySelector('img')
   window.addEventListener('mousemove', e => {
+    mPos.x = e.clientX
+    mPos.y = e.clientY
+  })
+  function tick() {
+    requestAnimationFrame(tick)
     const angle = Math.min(90, 
       Math.max(
           90 + Math.round(
           toDeg * Math.atan2(
-            e.clientX - document.body.clientWidth, 
-            e.clientY
+            mPos.x - document.body.clientWidth, 
+            mPos.y
           )
         ), 1
       )
     ).toString().padStart(2, '0');
-    src = `./assets/cctv_frames/00${angle}.jpg`
-  })
-  function tick() {
-    requestAnimationFrame(tick)
-    img.src = src
+    img.src = `./assets/cctv_frames/00${angle}.jpg`
   }
   tick()
 </script>
