@@ -23,130 +23,12 @@
       top: 0;
       right: 0;
     }
-
-    #camera {
-      top: 10rem;
-      left: 5%;
-      --delay: -5s;
-    }
-
-    #stream {
-      top: 10rem;
-      right: 15%;
-      --delay: -15s;
-    }
-
-    #studio {
-      bottom: 10rem;
-      right: 25%;
-      --delay: -25s;
-    }
   </style>
 </head>
 <body>
 <img src="./assets/cctv_frames/0001.jpg"/>
-<template id="tetra-pop">
-  <style>
-  polygon {
-    fill: hsl(var(--hue), 80%, 70%);
-    stroke: hsl(var(--hue), 80%, 70%);
-    vector-effect: non-scaling-stroke;
-  }
-  
-  div {
-    perspective: 128em;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform-style: preserve-3d;
-  }
-  
-  :host {
-    position: absolute;
-    transform: scale(0.2) rotate3d(1, 10, 3, 45deg);
-    filter: grayscale(100%);
-    transition: filter 200ms ease-in-out;
-    --hue: 0;
-  }
-    
-  :host(:hover) {
-    filter: grayscale(30%);
-  }
-    
-  :host(:active) {
-    filter: grayscale(10%);
-  }
-    
-  :host(:hover) .s4hedron {
-    cursor: pointer;
-  }
-  
-  .s4hedron {
-    animation: r 10s ease-in-out alternate infinite;
-    animation-delay: var(--delay, 0s);
-  }
-  .s4hedron svg {
-    position: absolute;
-    margin: -7em;
-    width: 14em;
-    height: 14em;
-  }
-  .s4hedron svg:nth-child(1) {
-    transform: rotateY(-90.0001deg) rotateX(-35.26439deg) translateZ(2.47487em);
-    opacity: 0.2;
-  }
-  .s4hedron svg:nth-child(2) {
-    transform: rotateY(90.0001deg) rotateX(-35.26439deg) translateZ(2.47487em);
-    opacity: 0.4;
-  }
-  .s4hedron svg:nth-child(3) {
-    transform: rotate(180deg) rotateY(0deg) rotateX(-35.26439deg) translateZ(2.47487em);
-    opacity: 0.6;
-  }
-  .s4hedron svg:nth-child(4) {
-    transform: rotate(180deg) rotateY(180deg) rotateX(-35.26439deg) translateZ(2.47487em);
-    opacity: 0.8;
-  }
-  
-  @keyframes r {
-    33.33333% {
-      transform: rotateX(1turn) rotateY(0deg) rotateZ(0deg);
-    }
-    66.66667% {
-      transform: rotateX(2turn) rotateY(1turn) rotateZ(-0.25turn);
-    }
-    100% {
-      transform: rotateX(1turn) rotateY(0.5turn) rotateZ(1turn);
-    }
-  }
-  </style>
-  <svg width="0" height="0">
-    <clipPath id="cp3gon">
-      <polygon id="p3gon" points="6.123233995736766e-14,-1000 866.0254037844387,499.99999999999983 -866.0254037844385,500.00000000000034"></polygon>
-    </clipPath>
-    <symbol id="s3gon" viewBox="-1000 -1000 2000 2000">
-      <use href="#p3gon" clip-path="url(#cp3gon)"></use>
-    </symbol>
-  </svg>
-  <div class="s4hedron">
-    <svg>
-      <use href="#s3gon"></use>
-    </svg>
-    <svg>
-      <use href="#s3gon"></use>
-    </svg>
-    <svg>
-      <use href="#s3gon"></use>
-    </svg>
-    <svg>
-      <use href="#s3gon"></use>
-    </svg>
-  </div>
-</template>
-<tetra-pop id="camera" style="--hue: 00deg"></tetra-pop>
-<tetra-pop id="stream" style="--hue: 30deg"></tetra-pop>
-<tetra-pop id="studio" style="--hue: 60deg"></tetra-pop>
 <script>
+  let src = './assets/cctv_frames/0001.jpg'
   const toDeg = 180 / Math.PI
   const img = document.body.querySelector('img')
   window.addEventListener('mousemove', e => {
@@ -160,24 +42,13 @@
         ), 1
       )
     ).toString().padStart(2, '0');
-    img.src = `./assets/cctv_frames/00${angle}.jpg`
+    src = `./assets/cctv_frames/00${angle}.jpg`
   })
-</script>
-<script>
-  customElements.define('tetra-pop',
-  class extends HTMLElement {
-    constructor() {
-      super();
-
-      const template = document.getElementById('tetra-pop');
-      const templateContent = template.content;
-
-      this.attachShadow({mode: 'open'}).appendChild(
-        templateContent.cloneNode(true)
-      );
-    }
+  function tick() {
+    requestAnimationFrame(tick)
+    img.src = src
   }
-);
+  tick()
 </script>
 </body>
 </html>
