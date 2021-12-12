@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public Domain | Garden</title>    
+  <style>
+    html, 
+    body {
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #c3c4c6;
+    }
+    img {
+      width: 50%;
+      height: 50%;
+      object-fit: cover;
+      object-position: right top;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+<img src="./assets/cctv_frames/0001.jpg"/>
+<script>
+  const toDeg = 180 / Math.PI
+  const img = document.body.querySelector('img')
+  window.addEventListener('mousemove', e => {
+    const angle = Math.min(90, 
+      Math.max(
+          90 + Math.round(
+          toDeg * Math.atan2(
+            e.clientX - document.body.clientWidth, 
+            e.clientY
+          )
+        ), 1
+      )
+    ).toString().padStart(2, '0');
+    img.src = `./assets/cctv_frames/00${angle}.jpg`
+  })
+</script>
+
+</body>
+</html>
