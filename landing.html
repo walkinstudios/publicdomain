@@ -136,26 +136,9 @@
         display: block;
       }
 
-      /* Works on Firefox */
+      /* Firefox */
       * {
-        scrollbar-width: thin;
-        scrollbar-color: #fafafa !important;
-      }
-
-      /* Works on Chrome, Edge, and Safari */
-      *::-webkit-scrollbar {
-        width: 12px;
-      }
-
-      *::-webkit-scrollbar-track {
-        background: #fafafa !important;
-      }
-
-      *::-webkit-scrollbar-thumb {
-        background-color: #fafafa !important;
-        border-radius: 20px;
-        border: 3px solid #fafafa !important;
-      }
+                 
 
       img {
         user-select: none;
@@ -551,7 +534,7 @@
         {
           start: Date.parse('Dec 18 2021 15:30:00 GMT+0530 (IST)'),
           end: Date.parse('Dec 18 2021 16:30:00 GMT+0530 (IST)'),
-          link: 'https://www.youtube.com/embed/M7lc1UVf-VE?&autoplay=1'
+          link: 'https://www.youtube.com/embed/qVZanHVJiJk?&autoplay=1'
         },
         {
           start: Date.parse('Dec 18 2021 18:30:00 GMT+0530 (IST)'),
@@ -690,25 +673,25 @@
           margin: 1rem;
         }
 
-        /* Works on Firefox */
+         /* Firefox */
         * {
           scrollbar-width: thin;
-          scrollbar-color: transparent !important;
+          scrollbar-color: transparent transparent;
         }
 
-        /* Works on Chrome, Edge, and Safari */
+        /* Chrome, Edge, and Safari */
         *::-webkit-scrollbar {
-          width: 12px;
+          width: 0px;
         }
 
         *::-webkit-scrollbar-track {
-          background: none;
+          background: transparent;
         }
 
         *::-webkit-scrollbar-thumb {
-          background-color: none;
-          border-radius: 20px;
-          border: none;
+          background-color: transparent;
+          border-radius: 0px;
+          border: 0px none transparent;
         }
 
         :host([data-open]) > div,

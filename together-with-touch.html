@@ -23,6 +23,7 @@
       width: 100vw;
       height: 100vh;
       overflow-y: auto;
+      overflow-x: hidden;
       display: flex;
       justify-content: center;
       margin: 0;
@@ -34,7 +35,7 @@
     main {
       display: flex;
       flex-direction: column;
-      width: calc(60vw - 10rem);
+      width: calc(60vw - 12 rem);
       margin-right: 6rem;
       /* text-align: justify; */
     }
@@ -63,6 +64,7 @@
       height: min-content;
       display: grid;
       grid-template-rows: 40rem 1fr;
+      margin-left: -1rem;
     }
 
     aside > section {
@@ -111,7 +113,7 @@
       display: flex;
       position: absolute;
       right: 0;
-      top: 240px
+      top: 240px;
     }
 
     aside > div > span > button {
@@ -170,9 +172,30 @@
     }
 
     #website-info-logo {
-      position: fixed;
+      position: sticky;
       top: 2rem;
-      margin-top: 2rem;
+      left: 0.5rem;
+    }
+
+    /* Firefox */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: transparent transparent;
+    }
+
+    /* Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    *::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background-color: transparent;
+      border-radius: 0px;
+      border: 0px none transparent;
     }
   </style>
 </head>
