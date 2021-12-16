@@ -10,18 +10,37 @@ customElements.define('pop-up',
     }
     toggleOpen() {
       if(this.hasAttribute('data-open')) {
-        this.removeAttribute('data-open')
+        this.hide.play()
+        this.hide.onfinish = _ => this.removeAttribute('data-open')
       } else {
         this.setAttribute('data-open', true)
+        this.show.play()
       }
     }
     connectedCallback() {
       this.overlay = this.shadowRoot.querySelector('div')
-      this.button = this.shadowRoot.querySelector('button')
+      const article = this.shadowRoot.querySelector('article')
+      this.show = article.animate([{
+        opacity: 0
+      }, {
+        opacity: 1
+      }], {
+        duration: 300,
+        easing: 'ease-in-out'
+      })
+      this.hide = article.animate([{
+        opacity: 1
+      }, {
+        opacity: 0
+      }], {
+        duration: 300,
+        easing: 'ease-in-out'
+      })
+      // this.button = this.shadowRoot.querySelector('button')
       this.toggleOpen = this.toggleOpen.bind(this)
 
       this.overlay.addEventListener('click', this.toggleOpen)
-      this.button.addEventListener('click', this.toggleOpen)
+      // this.button.addEventListener('click', this.toggleOpen)
     }
   }
 )

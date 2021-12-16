@@ -24,8 +24,9 @@
     main {
       display: flex;
       flex-direction: column;
-      width: calc(60vw - 4rem);
-      text-align: justify;
+      width: calc(60vw - 10rem);
+      margin-right: 6rem;
+      /* text-align: justify; */
     }
 
     main > header {
@@ -49,6 +50,9 @@
 
     aside {
       width: calc(40vw - 4rem);
+      height: min-content;
+      display: grid;
+      grid-template-rows: 40rem 1fr;
     }
 
     aside > section {
@@ -61,27 +65,93 @@
     }
 
     aside > section > img:nth-child(1) {
-      left: 20%;
-      top: 0;
-      width: 30%;
+      right: 0;
+      top: 155px;
+      width: 40%;
     }
 
     aside > section > img:nth-child(2) {
       left: 0%;
-      top: 100px;
+      top: 120px;
       width: 50%;
     }
 
     aside > section > img:nth-child(3) {
-      right: 0%;
-      top: 80px;
-      width: 40%;
+      left: 30%;
+      top: 0;
+      width: 35%;
     }
 
     aside > section > img:nth-child(4) {
-      right: 0%;
-      top: 220px;
+      right: 30%;
+      top: 300px;
       width: 35%;
+    }
+
+    aside > div {
+      width: calc(40vw - 4rem);
+      position: relative;
+    }
+
+    aside > div > img {
+      height: 3.25rem;
+    }
+
+    aside > div > span {
+      display: flex;
+      position: absolute;
+      right: 0;
+      top: 240px
+    }
+
+    aside > div > span > button {
+      background: none;
+      outline: none;
+      border: none;
+      color: #c4c4c4;
+      cursor: pointer;
+    }
+
+    aside > div > span > button:hover {
+      color: #a4a4a4;
+    }
+
+    aside > div > span > button:active {
+      color: #848484;
+    }
+
+    aside > div > span > button > svg {
+      pointer-events: none;
+    }
+
+    aside > div > ul {
+      list-style: none;
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+
+    aside > div > ul img {
+      width: calc(40vw - 14rem);
+    }
+    aside > div > ul p {
+      width: calc(40vw - 8rem);
+    }
+    aside > div > ul > li {
+      scroll-snap-align: start;
+      margin-right: 4rem;
+    }
+
+    footer {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    footer > img {
+      height: 4rem;
     }
   </style>
 </head>
@@ -372,14 +442,80 @@
     <p>
       publicdomain.garden is a project that explores the changing landscape of public life, and hybridity of the virtual and physical that we live in. The project is conceptualised by Walkin Studios and funded by the International Relief Fund for Organisations in Culture and Education 2021 of the German Federal Foreign Office, the Goethe-Institut and other partners. goethe.de/relieffund
     </p>
+    <footer>
+      <img src="./assets/goethe.png" alt="">
+      <img src="./assets/vega.png" alt="">
+      <img src="./assets/walkin.png" alt="">
+      <img src="./assets/mathscapes.png" alt="">
+    </footer>
   </main>
   <aside>
     <section>
-      <img src="./assets/together-aside-1.png" alt="Together with touch screens">
-      <img src="./assets/together-aside-2.png" alt="Together with touch screens">
-      <img src="./assets/together-aside-3.png" alt="Together with touch screens">
-      <img src="./assets/together-aside-4.png" alt="Together with touch screens">
+      <img src="./assets/together-aside-1.png" alt="Together with touch screen 1">
+      <img src="./assets/together-aside-2.png" alt="Together with touch screen 2">
+      <img src="./assets/together-aside-3.png" alt="Together with touch screen 3">
+      <img src="./assets/together-aside-4.png" alt="Together with touch screen 4">
     </section>
+    <div>
+      <img src="./assets/artists.png" alt="Artists heading">
+      <span>
+        <button data-delta="1">
+          <svg width="24px" height="24px" viewBox="0 0 32 32">
+            <path d="M32,0 0,16 32,32" fill="currentColor" stroke="none"/>
+          </svg>
+        </button>
+        <button data-delta="-1">
+          <svg width="24px" height="24px" viewBox="0 0 32 32">
+            <path d="M0,0 L32,16 L0,32z" fill="currentColor" stroke="none"/>
+          </svg>
+        </button>
+      </span>
+      <ul data-current="0">
+        <li data-index="0">
+          <img src="./assets/lena.jpg" />
+          <p>
+            Lena Heubusch<br>
+            Role: Lead artist & Instigator<br>
+            Lena Heubusch addresses the exploration of collective dynamics that investigate quantum interconnections between the material, the intuitive and the sensitive. Her work explores the hybridization between performance, sculpture, video and sound as a means to question the traditional categories of the image. Heubusch also questions these liminalities within the format of workshops and talks, most recently at The Graduate Center at City University of New York and Spazju Kreattiv Malta.
+            <br>
+            <br>
+            Selected exhibitions include:<br>
+            Bétonsalon - Centre d'art et de recherche (Paris), Friche La Belle de Mai (Marseille), The Graduate Center CUNY (NYC), Spazju Kreattiv (Malta), Five Years (London), Martch Gallery (Istanbul), Sluice Biennal (London), Wandsworth Arts Fringe (London), The Window Galleries (London), Doomed Gallery (London), CAC (Málaga).
+          </p>
+        </li>
+        <li data-index="1">
+          <img src="./assets/gaurav.jpg" />
+          <p>
+            Gaurav Singh/Mathscapes<br>
+            Role: Creative Coding<br>
+            Gaurav Singh is a researcher and educator who thinks and lives algorithms. He spends most of his time studying algorithms through the lens of maths and engages with recreational mathematics otherwise. Gaurav is interested in showing how closely mathematics and technology are woven into our world and affect us. His work can be best described as a collection of messy and unfinished factions of ideas, experiments, and ethos that evokes the relevance of Maths. Since 2008, he has been running Mathscapes, a lab to support him and collaborate with others who share the vision of pushing mathematics to study the world around us. He co-founded Mimo56 in 2015, a design lab that works across disciplines to help people build digital interfaces. He teaches and runs the Experimental Maths lab at Srishti Manipal Institute to support anyone interested in Maths. Gaurav has also volunteered his time and expertise as Design Copilot at Topcoder Inc. for the last few years
+          </p>
+        </li>
+        <li data-index="2">
+          <img src="./assets/nikhil.jpg" />
+          <p>
+            Nikhil Nagaraj<br>
+            Role: Sound Design<br>
+            Nikhil Nagaraj (°1990, Bangalore) is a sound designer, engineer and musician. His interest explores the amalgamation between electronic and acoustic music, combining traditional Indian music styles with contemporary classical and electronic concepts in his compositions and transformations with spatial sound to create immersive experiences through the use of sensors and 3D soundscapes.
+          </p>
+        </li>
+        <li data-index="3">
+          <img src="./assets/avril.jpg" />
+          <p>
+            Avril Stormy Unger<br>
+            Role: Performer<br>
+            Avril Stormy Unger (She / Her) is an interdisciplinary artist whose work across mediums is informed by the nuances of performance. Her practice spans across durational performance, movement art, interventions and installations.<br>
+            She has performed internationally at various festivals like Unsound festival, Krakow and Mira Festival, Barcelona and venues such as Dada, Beijing and The Cakeshop, Seoul. Her most recent works, UNTANGLE and MIRAGE were exhibited at Oyoun Cultural Centre, Berlin in April 2021. Since 2020, Avril is also a practicing and certified mental health professional with a focus on queer affirmative counselling.
+          </p>
+        </li>
+      </ul>
+    </div>
   </aside>
+  <script>
+    const artistList = document.querySelector('aside ul')
+    document.querySelector('aside > div > span').addEventListener('click', e => {
+      // artistList.scrollTo()
+    })
+  </script>
 </body>
 </html>
