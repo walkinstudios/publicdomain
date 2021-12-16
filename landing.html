@@ -30,7 +30,7 @@
     <!-- Import the webpage's stylesheet -->
     <!--link rel="stylesheet" href="/style.css" /-->
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 
       html, body {
         width: 100vw;
@@ -40,11 +40,13 @@
         align-items: center;
         justify-content: center;
         margin: 0;
-        font-family: 'Courier Prime', monospace;
+        font-family: 'Noto Sans', sans-serif;
         perspective: 800px;
       }
 
       #mesh {
+        user-select: none;
+        pointer-events: none;
         position: absolute;
         top: -5rem;
         left: -5rem;
@@ -91,16 +93,16 @@
       }
 
       #stream-button img {
-        width: 25vh;
-        height: 25vh;
+        width: 6rem;
+        height: 6rem;
         object-fit: cover;
         object-position: right top;
         pointer-events: none;
       }
 
       #camera {
-        top: 5rem;
-        right: 12%;
+        top: 10rem;
+        right: 10rem;
       }
 
       #stream {
@@ -120,6 +122,31 @@
       }
       #stream-popup[data-show="off"] h4 {
         display: block;
+      }
+
+      /* Works on Firefox */
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #fafafa !important;
+      }
+
+      /* Works on Chrome, Edge, and Safari */
+      *::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      *::-webkit-scrollbar-track {
+        background: #fafafa !important;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background-color: #fafafa !important;
+        border-radius: 20px;
+        border: 3px solid #fafafa !important;
+      }
+
+      img {
+        user-select: none;
       }
     </style>
     <!-- Import the webpage's javascript file -->
@@ -396,7 +423,7 @@
     <pop-up id="website-info">
       <section>
         <br>
-        <svg id="website-info-logo" style="margin: 1rem auto;" width="100%" height="25vh" viewBox="0 0 121 54" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg id="website-info-logo" style="margin: 1rem auto;" width="100%" height="10vh" viewBox="0 0 121 54" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <rect x="89.1307" y="9.32779" width="31.0921" height="3.63601" fill="url(#pattern0)"/>
           <rect y="31.6633" width="31.0921" height="3.63602" fill="url(#pattern1)"/>
           <path d="M21.6074 0.322052C25.0068 0.322052 27.0744 2.78415 27.0744 5.36053C27.0744 7.96807 25.0068 10.3315 21.6126 10.3315C18.3168 10.3315 18.5344 10.3315 18.5344 10.3315V15.9621H15.0728V0.327246L21.6074 0.322052ZM24.0533 5.36053C24.0533 4.15545 23.0791 3.35553 21.8768 3.35553H18.5396V7.298H21.8768C23.0791 7.298 24.0533 6.56561 24.0533 5.36053Z" fill="#333333"/>
@@ -437,10 +464,11 @@
         <p>Public Domain.Garden invites you to this metaphoric hybrid public garden where we can together investigate and explore the meaning of public space for each of us individually and collectively.</p>
         <br>
         <br>
+        publicdomain.garden@gmail.com
         <br>
         <p>The project is conceptualised and produced by Walkin Studios.</p>
-        <svg id="website-info-studio-logo" width="146px" height="99px" viewBox="0 0 146 99" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <a target="_blank" href="https://www.walkinstudios.com/">
+        <svg id="website-info-studio-logo" width="12vh" height="99px" viewBox="0 0 146 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <a href="https://www.walkinstudios.com/">
             <g>
               <path d="M102.379 23.2242L103.942 27.8323L105.48 23.2242H107.653L109.192 27.8323L110.754 23.2242H113.013L110.364 31.1167H108.044L106.567 26.7047L105.09 31.1167H102.77L100.109 23.2242H102.379Z" fill="#333333"/>
               <path d="M115.394 26.4229L118.409 26.141L118.397 26.0184C118.372 25.5282 117.774 25.3076 117.005 25.2586C115.98 25.2096 114.551 25.4792 114.087 25.712L113.574 23.886C114.38 23.4325 115.735 23.0648 116.859 23.0648C119.264 23.0648 120.643 24.0453 120.643 26.2635V31.1045H118.421V30.1118C117.786 30.7123 116.968 31.2638 115.687 31.2638C114.295 31.2638 113.245 30.2221 113.172 29.0088C113.074 27.7955 113.892 26.5577 115.394 26.4229ZM116.199 29.3887C117.383 29.3887 118.372 28.396 118.421 27.9793V27.6607L116.321 27.9548C115.54 28.0651 115.235 28.347 115.235 28.7024C115.223 29.0823 115.564 29.3887 116.199 29.3887Z" fill="#333333"/>
@@ -484,7 +512,7 @@
         <img style="margin: 0" src="./assets/together-banner.png" alt="Together with touch banner">
       </a>
     </pop-up>
-    <pop-up id="stream-popup" data-show="off" style="--align: center; --margin: 0 0 auto auto;">
+    <pop-up id="stream-popup" data-show="off" style="--align: center; --width: max-content; --height:min-content;">
       <h4 style="text-align: center;">Please come back later for the next upcoming show.</h4>
       <iframe id="ytplayer" type="text/html" style="margin: 0;" width="640" height="360"
         src="https://www.youtube.com/embed/M7lc1UVf-VE"
@@ -501,8 +529,18 @@
       })
       const showTimes = [
         {
-          start: Date.parse('Dec 15 2021 19:30:00 GMT+0530 (IST)'),
-          end: Date.parse('Dec 15 2021 20:30:00 GMT+0530 (IST)'),
+          start: Date.parse('Dec 16 2021 21:40:00 GMT+0530 (IST)'),
+          end: Date.parse('Dec 16 2021 22:15:00 GMT+0530 (IST)'),
+          link: 'https://www.youtube.com/embed/o58SSSGUwkw'
+        },
+        {
+          start: Date.parse('Dec 18 2021 15:30:00 GMT+0530 (IST)'),
+          end: Date.parse('Dec 18 2021 16:30:00 GMT+0530 (IST)'),
+          link: 'https://www.youtube.com/embed/M7lc1UVf-VE'
+        },
+        {
+          start: Date.parse('Dec 18 2021 18:30:00 GMT+0530 (IST)'),
+          end: Date.parse('Dec 18 2021 19:30:00 GMT+0530 (IST)'),
           link: 'https://www.youtube.com/embed/M7lc1UVf-VE'
         }
       ] 
@@ -564,17 +602,19 @@
         }
     
         canvas {
-          transition: filter 100ms ease-in-out;
+          transition: filter 100ms ease-in-out, transform 330ms ease-in-out;
           filter: grayscale(100%);
           cursor: pointer;
         }
     
         canvas:hover {
           filter: grayscale(50%);
+          transform: scale(1.5);
         }
     
         canvas:active {
           filter: grayscale(0%);
+          transform: scale(2.5);
         }
       </style>
       <canvas></canvas>
@@ -593,8 +633,8 @@
 
         article {
           z-index: 100;
-          height: 80vh;
-          width: 60vw;
+          height: var(--height, 80vh);
+          width: var(--width, 60vw);
           max-width: 90vw;
           display: none;
           position: fixed;
@@ -603,8 +643,8 @@
           top: 0;
           bottom: 0;
           margin: var(--margin, auto);
-          background: white;
-          border: 1px solid #eee;
+          /* background: white; */
+          /* border: 1px solid #eee; */
           border-radius: 5px;
           overflow-y: auto;
           flex-direction: column;
@@ -633,6 +673,27 @@
 
         ::slotted(*) {
           margin: 1rem;
+        }
+
+        /* Works on Firefox */
+        * {
+          scrollbar-width: thin;
+          scrollbar-color: transparent !important;
+        }
+
+        /* Works on Chrome, Edge, and Safari */
+        *::-webkit-scrollbar {
+          width: 12px;
+        }
+
+        *::-webkit-scrollbar-track {
+          background: none;
+        }
+
+        *::-webkit-scrollbar-thumb {
+          background-color: none;
+          border-radius: 20px;
+          border: none;
         }
 
         :host([data-open]) > div,
