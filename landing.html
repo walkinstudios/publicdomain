@@ -26,7 +26,14 @@
       content="./assets/together-banner.png"
     />
     <meta name="twitter:card" content="summary" />
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHHK7TSF5D"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-QHHK7TSF5D');
+    </script>
     <!-- Import the webpage's stylesheet -->
     <!--link rel="stylesheet" href="/style.css" /-->
     <style>
@@ -42,6 +49,11 @@
         margin: 0;
         font-family: 'Noto Sans', sans-serif;
         perspective: 800px;
+      }
+
+      @font-face {
+          font-family: Neutral;
+          src: url("./assets/NeutralFace.otf") format('opentype');
       }
 
       #mesh {
@@ -147,6 +159,11 @@
 
       img {
         user-select: none;
+      }
+
+      pop-up > h1 {
+        font-family: Neutral;
+        text-transform: uppercase;
       }
     </style>
     <!-- Import the webpage's javascript file -->
@@ -500,7 +517,7 @@
         Upcoming stream:
       </p>
       <p>
-        Together with touch <br>
+        <a href="./together-with-touch.html">Together with touch</a> <br>
         &nbsp;&nbsp;18th December 2021 <br>
         &nbsp;&nbsp;Show 1: 04.00pm IST <br>
         &nbsp;&nbsp;Show 2: 06.30pm IST
@@ -512,7 +529,7 @@
     </pop-up>
     <pop-up id="stream-popup" data-show="off" style="--align: center; --width: max-content; --height:min-content;">
       <h4 style="text-align: center;">Please come back later for the next upcoming show.</h4>
-      <iframe id="ytplayer" type="text/html" style="margin: 0;" width="640" height="360"
+      <iframe id="ytplayer" type="text/html" style="margin: 0;" width="640" height="360" allow=
         src="https://www.youtube.com/embed/M7lc1UVf-VE"
         frameborder="0"></iframe>
     </pop-up>
@@ -529,17 +546,17 @@
         {
           start: Date.parse('Dec 16 2021 21:40:00 GMT+0530 (IST)'),
           end: Date.parse('Dec 16 2021 22:15:00 GMT+0530 (IST)'),
-          link: 'https://www.youtube.com/embed/o58SSSGUwkw'
+          link: 'https://www.youtube.com/embed/o58SSSGUwkw?&autoplay=1'
         },
         {
           start: Date.parse('Dec 18 2021 15:30:00 GMT+0530 (IST)'),
           end: Date.parse('Dec 18 2021 16:30:00 GMT+0530 (IST)'),
-          link: 'https://www.youtube.com/embed/M7lc1UVf-VE'
+          link: 'https://www.youtube.com/embed/M7lc1UVf-VE?&autoplay=1'
         },
         {
           start: Date.parse('Dec 18 2021 18:30:00 GMT+0530 (IST)'),
           end: Date.parse('Dec 18 2021 19:30:00 GMT+0530 (IST)'),
-          link: 'https://www.youtube.com/embed/M7lc1UVf-VE'
+          link: 'https://www.youtube.com/embed/M7lc1UVf-VE?&autoplay=1'
         }
       ] 
       const mPos = {
