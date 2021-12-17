@@ -109,7 +109,6 @@
         height: 6rem;
         object-fit: cover;
         object-position: right top;
-        pointer-events: none;
       }
 
       #camera {
@@ -166,6 +165,7 @@
         text-transform: uppercase;
       }
 
+      
       #mobile-popup {
         display: none;
       }
@@ -173,6 +173,10 @@
       @media screen and (max-width: 520px) {
         #mobile-popup {
           display: initial;
+        }
+
+        #stream-button > img {
+          pointer-events: none;
         }
       }
     </style>
@@ -581,9 +585,9 @@
         mPos.x = e.clientX
         mPos.y = e.clientY
       })
-      const streamBtn = document.querySelector('#stream-button')
+      const streamImg = document.querySelector('#stream-button img')
       const streamPopup = document.querySelector('#stream-popup')
-      streamBtn.addEventListener('mouseenter', e => {
+      streamImg.addEventListener('mouseenter', e => {
         streamPopup.toggleOpen()
       })
       function updateShow(d) {

@@ -169,12 +169,14 @@
     #mesh {
       user-select: none;
       pointer-events: none;
+      z-index: -100;
     }
 
     #website-info-logo {
       position: sticky;
       top: 2rem;
       left: 0.5rem;
+      z-index: 2021;
     }
 
     /* Firefox */
@@ -196,6 +198,12 @@
       background-color: transparent;
       border-radius: 0px;
       border: 0px none transparent;
+    }
+
+    @media screen and (max-width: 520px) {
+      body {
+        overflow-x: auto;
+      }
     }
   </style>
 </head>
