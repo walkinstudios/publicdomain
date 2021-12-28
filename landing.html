@@ -193,6 +193,19 @@
           pointer-events: none;
         }
       }
+
+      #c4 {
+        width: 400px;
+        height: 400px;
+      }
+
+      #c5 {
+        position: absolute;
+        top: -50vw;
+        left: -50vh;
+        width: 100vw;
+        height: 100vh;
+      }
     </style>
   </head>
   <body>
@@ -467,7 +480,11 @@
       <img id="c1" style="width: 150px; position: absolute; left: calc(-50vw - 550px); top: calc(-50vh - 550px);" src="./assets/cctv_frames/0001.png"/>
       <img id="c2" style="width: 150px; position: absolute; right: calc(-50vw - 550px); top: calc(-50vh - 550px);" src="./assets/cctv_frames/0021.png"/>
       <img id="c3" style="width: 150px; position: absolute; left: calc(-50vw - 550px); bottom: calc(-50vh - 550px);" src="./assets/cctv_frames/0041.png"/>
-      <img id="c4" style="width: 150px; position: absolute; right: calc(-50vw - 550px); bottom: calc(-50vh - 550px);" src="./assets/cctv_frames/0061.png"/>
+      <!-- <img id="c4" style="width: 150px; position: absolute; right: calc(-50vw - 550px); bottom: calc(-50vh - 550px);" src="./assets/cctv_frames/0061.png"/> -->
+      <model-viewer id="c4" src="./assets/orangutan.glb" shadow-intensity="1" 
+      camera-orbit='1.31rad 1.34rad 8m' min-field-of-view='120deg' max-field-of-view='120deg'></model-viewer>
+      <model-viewer camera-orbit="-1.75rad 1.4rad 0m" field-of-view="0.1rad" id="c5" src="./assets/whale.glb" shadow-intensity="1">
+      </model-viewer>
     </main>
     <pop-up id="website-info">
       <section>
@@ -764,6 +781,8 @@
     </template>
     <script src="./js/tetra-anim.js"></script>
     <script src="./js/pop-up.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    </script>
     <script src="https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"></script>
     <script>
       document.querySelector('#popup-links').addEventListener('click', e => {
@@ -778,6 +797,10 @@
           var shouldIgnore = !e.altKey;
           return shouldIgnore;
         }
+      })
+      document.querySelectorAll('model-viewer').forEach(mv => {
+        mv.addEventListener('pointerenter', _ => mv.play())
+        mv.addEventListener('pointerleave', _ => mv.pause())
       })
     </script>
   </body>
