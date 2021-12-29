@@ -206,6 +206,13 @@
         width: 100vw;
         height: 100vh;
       }
+
+      #public-wall > iframe,
+      #twitter-wall > iframe {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
     </style>
   </head>
   <body>
@@ -476,16 +483,22 @@
         </button>
         <tetra-anim id="camera" axes="1, 0, 1" hue="00" data-target="#camera-info"></tetra-anim>
         <tetra-anim id="website" axes="0, 0, 1" hue="30" data-target="#website-info"></tetra-anim>
+        <model-viewer id="c4" data-target="#public-wall" src="./assets/orangutan.glb" shadow-intensity="1" 
+      camera-orbit='1.31rad 1.34rad 8m' min-field-of-view='120deg' max-field-of-view='120deg'></model-viewer>
+        <model-viewer id="c5" data-target="#twitter-wall" camera-orbit="-1.75rad 1.4rad 0m" field-of-view="0.1rad" src="./assets/whale.glb" shadow-intensity="1">
+        </model-viewer>
       </div>
       <img id="c1" style="width: 150px; position: absolute; left: calc(-50vw - 550px); top: calc(-50vh - 550px);" src="./assets/cctv_frames/0001.png"/>
       <img id="c2" style="width: 150px; position: absolute; right: calc(-50vw - 550px); top: calc(-50vh - 550px);" src="./assets/cctv_frames/0021.png"/>
       <img id="c3" style="width: 150px; position: absolute; left: calc(-50vw - 550px); bottom: calc(-50vh - 550px);" src="./assets/cctv_frames/0041.png"/>
       <!-- <img id="c4" style="width: 150px; position: absolute; right: calc(-50vw - 550px); bottom: calc(-50vh - 550px);" src="./assets/cctv_frames/0061.png"/> -->
-      <model-viewer id="c4" src="./assets/orangutan.glb" shadow-intensity="1" 
-      camera-orbit='1.31rad 1.34rad 8m' min-field-of-view='120deg' max-field-of-view='120deg'></model-viewer>
-      <model-viewer camera-orbit="-1.75rad 1.4rad 0m" field-of-view="0.1rad" id="c5" src="./assets/whale.glb" shadow-intensity="1">
-      </model-viewer>
     </main>
+    <pop-up id="twitter-wall">
+      <iframe src="https://publish.twitter.com/search?q=%23publicdomain" frameborder="0"></iframe>
+    </pop-up>
+    <pop-up id="public-wall">
+      <iframe src="https://wbo.ophir.dev/boards/R9Rww5nimkEk1wU7ddRos-rtflr1CY67fjzEcLcC-pg-" frameborder="0"></iframe>
+    </pop-up>
     <pop-up id="website-info">
       <section>
         <br>
@@ -789,7 +802,7 @@
         document.querySelector(e.target.dataset.target).toggleOpen()
       })
       panzoom(document.body.firstElementChild, {
-        minZoom: 0.1,
+        minZoom: 0.33,
         maxZoom: 1,
         transformOrigin: {x: 0, y: 0},
         beforeWheel: function(e) {
