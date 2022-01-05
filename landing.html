@@ -203,8 +203,10 @@
         position: absolute;
         top: -50vw;
         left: -50vh;
-        width: 100vw;
-        height: 100vh;
+        /* width: 100vw;
+        height: 100vh; */
+        width: 400px;
+        height: 400px;
       }
 
       #public-wall > iframe,
@@ -483,9 +485,9 @@
         </button>
         <tetra-anim id="camera" axes="1, 0, 1" hue="00" data-target="#camera-info"></tetra-anim>
         <tetra-anim id="website" axes="0, 0, 1" hue="30" data-target="#website-info"></tetra-anim>
-        <model-viewer id="c4" data-target="#public-wall" src="./assets/orangutan.glb" shadow-intensity="1" 
-      camera-orbit='1.31rad 1.34rad 8m' min-field-of-view='120deg' max-field-of-view='120deg'></model-viewer>
-        <model-viewer id="c5" data-target="#twitter-wall" camera-orbit="-1.75rad 1.4rad 0m" field-of-view="0.1rad" src="./assets/whale.glb" shadow-intensity="1">
+        <model-viewer id="c4" data-target="#public-wall" src="./assets/can.glb" shadow-intensity="1" 
+      camera-orbit='0rad 1.34rad 8m' min-field-of-view='120deg' max-field-of-view='120deg'></model-viewer>
+        <model-viewer id="c5" data-target="#twitter-wall" camera-orbit="0.5rad 1.4rad 45m" field-of-view="10rad" src="./assets/fence001.glb" shadow-intensity="1">
         </model-viewer>
       </div>
       <img id="c1" style="width: 150px; position: absolute; left: calc(-50vw - 550px); top: calc(-50vh - 550px);" src="./assets/cctv_frames/0001.png"/>
